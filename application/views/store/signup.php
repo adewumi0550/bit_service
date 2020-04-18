@@ -61,38 +61,48 @@
                         <hr>
                     </header>
                     <!-- Start: Login form -->
-                    <form class="p-4">
+                    <!-- <form class="p-4"> -->
+
+                           
+                                            
+                                        <?php echo form_open('signup', 'class="p-4"'); ?>
                         <!-- Start: Name -->
-                        <div class="form-group"><label class="text-secondary">First Name*</label><input class="form-control auth_input" type="text" name="auth_firstname" required="" pattern="[A-Z]+[a-z]+[^_*$%£@~#()]" inputmode="email"></div>
+                        <div class="form-group"><label class="text-secondary">First Name*</label><br>
+                            <span style="font-size: 9px;" class="text-danger"><?php echo form_error('auth_firstname', " "); ?></span> 
+                            <input class="form-control auth_input" type="text" name="auth_firstname"  inputmode="email"></div>
                         <!-- End: Name -->
                         <!-- Start: Name -->
-                        <div class="form-group"><label class="text-secondary">Last Name*</label><input class="form-control auth_input" type="text" name="auth_lastname" required="" pattern="[A-Z]+[a-z]+[^_*$%£@~#()]" inputmode="email"></div>
+                        <div class="form-group"><label class="text-secondary">Last Name*</label><br>
+                            <span style="font-size: 9px;" class="text-danger"><?php echo form_error('auth_lastname'," "); ?></span>
+                            <input class="form-control auth_input" type="text" name="auth_lastname"  inputmode="email"></div>
                         <!-- End: Name -->
                         <!-- Start: Name -->
-                        <div class="form-group"><label class="text-secondary">Middle Name&nbsp;<small>(Optional)</small></label><input class="form-control auth_input" type="text" name="auth_middlename" pattern="[A-Z]+[a-z]+[^_*$%£@~#()]" inputmode="email"></div>
+                        <div class="form-group"><label class="text-secondary">Middle Name&nbsp;<small>(Optional)</small></label><br>
+                            <span style="font-size: 9px;" class="text-danger"><?php echo form_error('auth_middlename'," "); ?></span>
+                            <input class="form-control auth_input" type="text" name="auth_middlename"  inputmode="email"></div>
                         <!-- End: Name -->
                         <!-- Start: Name -->
-                        <div class="form-group"><label class="text-secondary">Phone Number*<small class="form-text text-muted">Phone number must start with +234 followed by 10 digit of your phone number</small></label><input class="form-control auth_input" type="tel" name="auth_phoneNumber"
-                                required="" maxlength="14" minlength="14" pattern="[+][234]+[0-9]{2,15}$"></div>
+                        <div class="form-group"><label class="text-secondary">Phone Number*<small class="form-text text-muted"></small></label><br>
+                            <span style="font-size: 9px;" class="text-danger"><?php echo form_error('auth_phoneNumber'," "); ?></span>
+                            <input class="form-control auth_input" type="tel" name="auth_phoneNumber"></div>
                         <!-- End: Name -->
                         <!-- Start: Email -->
-                        <div class="form-group"><label class="text-secondary">Email*</label><input class="form-control auth_input" type="email" name="auth_email" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$"></div>
+                        <div class="form-group"><label class="text-secondary">Email*</label><br>
+                            <span style="font-size: 9px;" class="text-danger"><?php echo form_error('auth_email'," "); ?></span>
+                            <input class="form-control auth_input" type="email" name="auth_email" ></div>
                         <!-- End: Email -->
                         <!-- Start: Password -->
-                        <div class="form-group"><label class="text-secondary">Password*</label><input class="form-control auth_input" type="password" name="auth_password" required="" maxlength="12" minlength="6" pattern="[A-Za-z]+[0-9]+[^A-Za-z0-9_]$"></div>
+                        <div class="form-group"><label class="text-secondary">Password*</label><br>
+                            <span style="font-size: 9px;" class="text-danger"><?php echo form_error('auth_password'," "); ?></span>
+                            <input class="form-control auth_input" type="password" name="auth_password"></div>
                         <!-- End: Password -->
                         <!-- Start: Password -->
-                        <div class="form-group"><label class="text-secondary">Confirm Password*</label><input class="form-control auth_input" type="password" name="auth_confirmPassword" required="" maxlength="12" minlength="6" pattern="[A-Za-z]+[0-9]+[^A-Za-z0-9_]$"></div>
+                        <div class="form-group"><label class="text-secondary">Confirm Password*</label><br>
+                                    <span style="font-size: 9px;" class="text-danger"><?php echo form_error('auth_confirmPassword'," "); ?></span>
+                            <input class="form-control auth_input" type="password" name="auth_confirmPassword" ></div>
                         <!-- End: Password -->
                         <!-- Start: Password Guid -->
-                        <div class="form-group"><small class="form-text text-muted">Make sure your password contains the following format:</small>
-                            <ol type="a">
-                                <li>start with a upper case char. e.g: Pascal</li>
-                                <li>Atlest a digit. e.g: 0-9</li>
-                                <li>atlest a symbol. e.g: $,@*- etc.</li>
-                                <li>contains at lest: 6 char short, 12 char long.</li>
-                            </ol>
-                        </div>
+                    
                         <!-- End: Password Guid -->
                         <div>
                             <div class="form-check"><input class="form-check-input auth_input" type="checkbox" name="auth_agreement" value="agreed" checked="" id="formCheck-1"><label class="form-check-label text-capitalize" for="formCheck-1" style="font-style: italic;text-align: center;">&nbsp;By clicking "Signup" you must have read and agreed to our <a href="#">Terms of Service</a>&nbsp; | <a href="#">Privecy</a>&nbsp;|&nbsp;<a href="#">Policy</a>&nbsp;and&nbsp;<a href="#">Conditions</a></label></div>

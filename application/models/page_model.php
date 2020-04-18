@@ -24,6 +24,32 @@ public function index($value='')
 			  }
         }
 
+        public function admin_login($username,$pass)
+        {
+          $this->db->select('*');
+       $this->db->where('username', $username);
+        $this->db->where('password', $pass);
+        $result = $this->db->get('user_account');
+        if ($result->num_rows()==1) {
+          return $result->row(0)->id;
+        }else{
+
+          return false;
+        }
+        }
+
+
+         public function check_username_exists($username)
+        {
+            $this->db->where('username', $username);
+          $query = $this->db->get('user_account');
+          if ($query->num_rows()>0) {
+            return false;
+          }else{
+            return true;
+          }
+        }
+
         public function user_summary($username)
         {
            $query = $this->db->query("SELECT * FROM reserve where username='$username' order by id desc");

@@ -54,19 +54,34 @@
                 <!-- Start: Login container -->
                 <div class="border rounded-0 shadow-sm m-auto w-lg-75 w-xl-50 pb-2">
                     <!-- Start: Your company -->
-                    <h2 class="text-center text-info font-weight-light mb-5 mt-5"><img class="img-fluid w-75" src="<?php echo base_url();?>/assets/img/logo/bs-logo-white.jpeg?h=5ae19eaa76efcc26897d4a9154eb26b5">&nbsp;</h2>
+                    <h2 class="text-center text-info font-weight-light mb-5 mt-5"><img class="img-fluid w-75" src="<?php echo base_url();?>/assets/img/logo/bs-logo-white.jpeg">&nbsp;</h2>
                     <!-- End: Your company -->
                     <header>
                         <h1 class="text-center bs-color-code">Login</h1>
                         <hr>
                     </header>
+
+                     <?php if (isset($_SESSION['login_failed'])) {?>
+
+
+                            <div style="color: red;font-size: 13px;">
+                                <?php echo $_SESSION['login_failed']; ?></div>
+                            <?php
+                            } ?>
+
                     <!-- Start: Login form -->
-                    <form class="p-4">
+                    <?php echo form_open('login', 'class="p-4"'); ?>
                         <!-- Start: Email -->
-                        <div class="form-group"><label class="text-secondary">Email</label><input class="form-control auth_input" type="text" name="auth_username" required="" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,15}$" inputmode="email"></div>
+                        <div class="form-group"><label class="text-secondary">Email</label>
+                            <br>
+                            <span style="font-size: 9px;" class="text-danger"><?php echo form_error('username', " "); ?></span> 
+                            <input class="form-control auth_input" type="text" name="username" ></div>
                         <!-- End: Email -->
                         <!-- Start: Password -->
-                        <div class="form-group"><label class="text-secondary">Password</label><input class="form-control auth_input" type="password" name="auth_password" required=""></div>
+                        <div class="form-group"><label class="text-secondary">Password</label>
+                            <br>
+                            <span style="font-size: 9px;" class="text-danger"><?php echo form_error('password', " "); ?></span> 
+                            <input class="form-control auth_input" type="password" name="password"></div>
                         <!-- End: Password -->
                         <!-- Start: Submit --><button class="btn btn-info mt-2" type="submit" style="background-color: #464a6c;">Log In</button>
                         <!-- End: Submit -->
