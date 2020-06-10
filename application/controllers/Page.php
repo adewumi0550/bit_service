@@ -18,6 +18,8 @@ class Page extends CI_Controller {
 
 
 
+  
+
 
                 public function index($page='index')
                 {
@@ -68,12 +70,13 @@ class Page extends CI_Controller {
 
           );
           $this->db->insert('user_account', $data);
-          die();
+          // die();
            $this->session->set_flashdata("register","Account Successfully Registered");
             // $this->Page_model->contact_us();
             $data['title'] = 'Dashboard';
              // $this->load->view('template/header', $data);
-             $this->load->view('store/signup', $data);
+             // $this->load->view('', $data);
+            redirect('login','refresh');
              // $this->load->view('template/footer', $data);
                   }
                 
@@ -94,41 +97,80 @@ class Page extends CI_Controller {
                   }
 
 
-                     public function admin_logout()
+                     public function logout()
             {
 
-
-              
-              
-                  
-                $this->session->unset_userdata('admin_logged_in');
+                $this->session->unset_userdata('account_logged_in');
                   $this->session->unset_userdata('user_id');
                   $this->session->unset_userdata('username');
                   $this->session->unset_userdata('password');
                   $this->session->set_flashdata("logout","You have succesfully log out");
                 
-                        redirect('belbecadmin','refresh');
+                        redirect('login','refresh');
             }
 
 
                public function login()
               {
-                  if ($this->session->userdata('account_logged_in') ) {
-                 redirect('admin/dashboard','refresh');
-                      }
+             //      if ($this->session->userdata('account_logged_in') ) {
+             //     redirect('admin/dashboard','refresh');
+             //          }
 
-                    $this->form_validation->set_rules('username', 'Username', 'trim|required');
+             //        $this->form_validation->set_rules('username', 'Username', 'trim|required');
+             //         $this->form_validation->set_rules('password', 'Password', 'trim|required');
+             //                if ($this->form_validation->run() == FALSE) {
+             //            $data['title'] = 'Dashboard';
+             //                 // $this->load->view('template/header', $data);
+             //                 $this->load->view('store/login', $data);
+             //                 // $this->load->view('template/footer', $data);                            } else {
+             //                $username =  strtolower($this->input->post('username'));
+             //                     $password =  strtolower($this->input->post('password'));
+             //                     $pass = md5($password);
+
+                          // $user_id = $this->Page_model->admin_login($username,$pass);
+
+             //              if ($user_id) {
+             //                $user_data =array(
+             //                  'user_id' => $user_id,
+             //                  'username' => $username,
+             //                  'password' => $password,
+             //                  'account_logged_in' => TRUE
+             //                );
+             //                $this->session->set_userdata($user_data);
+             //               $data['title'] = 'Dashboard';
+             //                redirect('dashboard','refresh',$data);
+
+             //              }else{
+
+             //        $this->session->set_flashdata("login_failed","Invalid Username or Password");
+             //            $data['title'] = 'Dashboard';
+             // // $this->load->view('template/header', $data);
+             //             $this->load->view('store/login', $data);
+             // // $this->load->view('template/footer', $data);
+             //                }
+             //     }
+
+
+                  if ($this->session->userdata('account_logged_in') ) {
+                 redirect('dashboard','refresh');
+
+          
+                 }
+
+                    $this->form_validation->set_rules('username', 'username', 'trim|required');
                      $this->form_validation->set_rules('password', 'Password', 'trim|required');
                             if ($this->form_validation->run() == FALSE) {
-                        $data['title'] = 'Dashboard';
-                             // $this->load->view('template/header', $data);
+                         
+                         $data['title'] = 'Dashboard';
+             //                 // $this->load->view('template/header', $data);
                              $this->load->view('store/login', $data);
-                             // $this->load->view('template/footer', $data);                            } else {
+             //                 // $this->load->view('template/footer', $data);
+                            } else {
                             $username =  strtolower($this->input->post('username'));
                                  $password =  strtolower($this->input->post('password'));
                                  $pass = md5($password);
 
-                          $user_id = $this->Page_model->admin_login($username,$pass);
+                          $user_id = $this->Page_model->user_login($username,$pass);
 
                           if ($user_id) {
                             $user_data =array(
@@ -139,17 +181,19 @@ class Page extends CI_Controller {
                             );
                             $this->session->set_userdata($user_data);
                            $data['title'] = 'Dashboard';
-                            redirect('admin/index','refresh',$data);
+                            redirect('account','refresh',$data);
 
                           }else{
 
                     $this->session->set_flashdata("login_failed","Invalid Username or Password");
-                        $data['title'] = 'Dashboard';
-             // $this->load->view('template/header', $data);
-             $this->load->view('store/login', $data);
-             // $this->load->view('template/footer', $data);
+
+                                            
+                     $data['title'] = 'Dashboard';
+                             // $this->load->view('template/header', $data);
+                             $this->load->view('store/login', $data);
+             //                 // $this->load->view('template/footer', $data);
                             }
-                 }
+    }
 
             
               }
@@ -169,6 +213,31 @@ class Page extends CI_Controller {
              $this->load->view('store/request', $data);
              $this->load->view('template/footer', $data);
               }
+
+                public function contact()
+                {
+                      $this->form_validation->set_rules('name', 'Full Name', 'trim|required');
+                      $this->form_validation->set_rules('email', 'Email Address', 'trim|valid_email|required');
+                       $this->form_validation->set_rules('phone', 'Mobile Number', 'trim|numeric');
+                       $this->form_validation->set_rules('subject', 'subject', 'trim|required');
+                        $this->form_validation->set_rules('message', 'Message', 'trim|required');
+
+                     if ($this->form_validation->run() == FALSE) {
+                        $data['title'] = 'Contact Us'; // Capitalize the first letter
+                                $this->load->view('template/header', $data);
+                                $this->load->view('store/contact', $data);
+                                $this->load->view('template/footer', $data);
+                     } else {
+                        $this->Page_model->contact_us();
+                        $data['title'] = 'Contact Us'; // Capitalize the first letter
+                                $this->load->view('template/header', $data);
+                                $this->load->view('store/contact', $data);
+                                $this->load->view('template/footer', $data);
+                     }
+
+                }
+
+
 
                  public function subscripition()
               {

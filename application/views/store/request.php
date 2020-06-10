@@ -91,32 +91,8 @@
                             <nav>
                                 <ul class="pagination pagination-lg">
                                     <li class="page-item"><a class="page-link" aria-label="Previous"><span aria-hidden="true">«</span></a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=A">A</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=B">B</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=C">C</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=D">D</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=E">E</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=F">F</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=G">G</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=H">H</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=I">I</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=J">J</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=K">K</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=L">L</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=M">M</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=N">N</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=O">O</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=P">P</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=Q">Q</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=R">R</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=S">S</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=T">T</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=U">U</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=V">V</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=W">W</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=X">X</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=Y">Y</a></li>
-                                    <li class="page-item"><a class="page-link" href="request.html?load=Z|">Z</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">A</a></li>
+                                   
                                     <li class="page-item"><a class="page-link" aria-label="Next"><span aria-hidden="true">»</span></a></li>
                                 </ul>
                             </nav>

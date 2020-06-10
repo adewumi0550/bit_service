@@ -58,15 +58,30 @@
                             <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo base_url(); ?>" style="font-size: 20px;">Home</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo base_url(); ?>request" style="font-size: 20px;">&nbsp;services&nbsp;</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link" href="<?php echo base_url(); ?>subscripition" style="font-size: 20px;">Render service</a></li>
-                            <li class="nav-item" role="presentation"><a class="nav-link active" href="#" style="font-size: 20px;color: rgba(255,255,255,0.5);">Learn More</a></li>
+                            <li class="nav-item" role="presentation"><a class="nav-link active" href="<?php echo base_url(); ?>contact" style="font-size: 20px;color: rgba(255,255,255,0.5);">Contact</a></li>
                         </ul>
                         <ul class="nav navbar-nav ml-auto">
+
+                            <?php if (!$this->session->userdata('account_logged_in')){?>
+
+                            
                             <li class="nav-item" role="presentation"><a class="nav-link active border rounded border-warning shadow" href="<?php echo base_url(); ?>login" style="color: #eac70e;"><i class="fas fa-user-lock"></i>&nbsp;Login</a></li>
                             <li class="nav-item" role="presentation"><a class="nav-link active border rounded border-success shadow" href="<?php echo base_url(); ?>signup" style="color: #9bdbc1;"><i class="fa fa-user-circle-o"></i>&nbsp; Sign Up</a></li>
-                            <li class="nav-item dropdown"><a class="dropdown-toggle nav-link border rounded-0 border-warning shadow" data-toggle="dropdown" aria-expanded="false" href="#"><img class="rounded-circle img-fluid" src="<?php echo base_url(); ?>assets/img/gravater/user.png?h=25a56d70d87dad0ef06160523bd08873" style="width: 25px;height: 25px;"></a>
+                           
+                            <?php
+                            }elseif ($this->session->userdata('account_logged_in')) {?> <li class="nav-item dropdown"><a class="dropdown-toggle nav-link border rounded-0 border-warning shadow" data-toggle="dropdown" aria-expanded="false" href="#"><img class="rounded-circle img-fluid" src="<?php echo base_url(); ?>assets/img/gravater/user.png?h=25a56d70d87dad0ef06160523bd08873" style="width: 25px;height: 25px;"> My Account</a>
                                 <div
-                                    class="dropdown-menu dropdown-menu-right bs-drop-auth-menu" role="menu"><a class="dropdown-item" role="presentation" href="#">Profile</a><a class="dropdown-item" role="presentation" href="#">Settings</a><a class="dropdown-item" role="presentation" href="#">Wallet</a></div>
+                                    class="dropdown-menu dropdown-menu-right bs-drop-auth-menu" role="menu"><a class="dropdown-item" role="presentation" href="<?php echo base_url(); ?>dashboard">My Dashboard</a>
+                                    <a class="dropdown-item" role="presentation" href="<?php echo base_url(); ?>profile">Profile</a>
+                                    <a class="dropdown-item" role="presentation" href="<?php echo base_url(); ?>password">Settings</a>
+                                    <a class="dropdown-item" role="presentation" href="<?php echo base_url(); ?>logout">Logout</a>
+                                </div>
                 </li>
+
+                             <?php
+                              }  
+                               ?>
+
                 </ul>
                 </div>
                 </div>

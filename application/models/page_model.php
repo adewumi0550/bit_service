@@ -24,19 +24,19 @@ public function index($value='')
 			  }
         }
 
-        public function admin_login($username,$pass)
-        {
-          $this->db->select('*');
-       $this->db->where('username', $username);
-        $this->db->where('password', $pass);
-        $result = $this->db->get('user_account');
-        if ($result->num_rows()==1) {
-          return $result->row(0)->id;
-        }else{
+       //  public function admin_login($username,$pass)
+       //  {
+       //    $this->db->select('*');
+       // $this->db->where('username', $username);
+       //  $this->db->where('password', $pass);
+       //  $result = $this->db->get('user_account');
+       //  if ($result->num_rows()==1) {
+       //    return $result->row(0)->id;
+       //  }else{
 
-          return false;
-        }
-        }
+       //    return false;
+       //  }
+       //  }
 
 
          public function check_username_exists($username)
@@ -86,6 +86,25 @@ public function index($value='')
                   $query = $this->db->query("SELECT * FROM user_account where  username = '$username'");
                          return $query->row_array();  
         }
+
+
+        public function contact_us()
+        {
+
+            $data= array(
+                'name' => $this->input->post('name'),
+                 'email' => $this->input->post('email'),
+                  'phone' => $this->input->post('phone'),
+                  'subject' => $this->input->post('subject'),
+                  'message' => $this->input->post('message')
+            );
+
+            
+            $this->db->insert('contact_us', $data);
+              $name = $this->input->post('name');
+            $this->session->set_flashdata('success_contact_save', 'Thank You,<strong>'.$name.'</strong> for your Message.');
+          }
+
 
         public function complex_list()
         {

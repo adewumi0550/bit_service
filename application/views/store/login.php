@@ -60,15 +60,11 @@
                         <h1 class="text-center bs-color-code">Login</h1>
                         <hr>
                     </header>
+                    <?php if (isset($_SESSION['login_failed'])) {?>
 
-                     <?php if (isset($_SESSION['login_failed'])) {?>
-
-
-                            <div style="color: red;font-size: 13px;">
-                                <?php echo $_SESSION['login_failed']; ?></div>
+                        <div class="alert alert-danger alert-dismissable"><?php echo $_SESSION['login_failed']; ?></div>
                             <?php
                             } ?>
-
                     <!-- Start: Login form -->
                     <?php echo form_open('login', 'class="p-4"'); ?>
                         <!-- Start: Email -->
